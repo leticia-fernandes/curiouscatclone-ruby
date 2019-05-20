@@ -13,3 +13,41 @@
  */
 
 @import 'bootstrap';
+
+
+.full-screen{
+  height: 100vh;
+  width: 100%;
+  padding: 0 2%;
+  display: table;
+  margin: 0;
+  max-width: none;
+}
+
+.middle-fullscreen {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.box-home{
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+  border-right: 3px solid black;
+  background-color: #ed5f1e;
+  padding: 25px 0;
+  font-family: 'Righteous', cursive;
+  h1{
+    font-weight: bold;
+    color: white;
+    margin-bottom: 25px;
+  }
+  h2{
+    font-size: 1.5em;
+    font-family: 'Viga', sans-serif;
+    padding: 2px;
+    a, a:link, a:visited, a:hover{
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
