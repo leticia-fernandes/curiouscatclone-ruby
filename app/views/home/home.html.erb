@@ -15,9 +15,8 @@
       <div class="middle-fullscreen">
         <div class="row">
           <div class="col-md-4 offset-md-2 box-home text-center">
-            <h1>Welcome!</h1>
-            <h2> <%= link_to 'Login', new_user_session_path %></h2>
-            <h2> <%= link_to 'Register', new_user_registration_path %></h2>
+            <h1>Logged!</h1>
+            <h2><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h2>
           </div>
           <div class="col-md-4">
             <%= image_tag ("/assets/ccc.png"), class: "w-100"%>
