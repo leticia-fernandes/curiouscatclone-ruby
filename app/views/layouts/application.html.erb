@@ -7,17 +7,45 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Righteous|Viga">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Amaranth|Viga">
   </head>
 
-  <body>
+<body>
+  <nav id="navbar-ccc" class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to home_index_path, class: "navbar-brand" do%>
+        <%= image_tag ('/assets/navbar.png'), class: 'img-nav' %>
+      <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-auth" aria-controls="nav-auth" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav-auth">
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete , class:"nav-link"%>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Login', new_user_session_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Register', new_user_registration_path, class:"nav-link"%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
+  </div>
 
-    <%= yield %>
+  <%= yield %>
   </body>
 </html>

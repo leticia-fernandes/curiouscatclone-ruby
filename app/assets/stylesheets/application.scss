@@ -14,6 +14,31 @@
 
 @import 'bootstrap';
 
+$redColor: #bc1823;
+$fontTitle: 'Amaranth';
+
+body{
+  padding-bottom: 100px;
+}
+
+#error_explanation{
+  h2{
+    font-size: 1.5em;
+  }
+
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+#navbar-ccc {
+  background-color: white !important;
+  font-family: $fontTitle, sans-serif;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 50px;
+  .img-nav{
+    width: 200px;
+  }
+}
 
 .full-screen{
   height: 100vh;
@@ -33,9 +58,9 @@
   border-bottom-left-radius: 25px;
   border-top-left-radius: 25px;
   border-right: 3px solid black;
-  background-color: #bc1823;
+  background-color: $redColor;
   padding: 25px 0;
-  font-family: 'Amaranth', cursive;
+  font-family: $fontTitle, sans-serif;
   h1{
     font-weight: bold;
     color: white;
@@ -43,7 +68,7 @@
   }
   h2{
     font-size: 1.5em;
-    font-family: 'Amaranth', sans-serif;
+    font-family: $fontTitle, sans-serif;
     padding: 2px;
     a, a:link, a:visited, a:hover{
       color: black;
@@ -51,3 +76,17 @@
     }
   }
 }
+
+.default-form{
+  h2, label{
+    font-family: $fontTitle, sans-serif;
+  }
+  h2{
+    margin-bottom: 20px;
+    color: $redColor;
+  }
+  a {
+    color: $redColor;
+  }
+}
+
