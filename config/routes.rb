@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
   devise_for :users
 
   authenticated :user do
-    root 'perfil#index', as: :authenticated_root
+    root 'profile#index', as: :authenticated_root
   end
 
   root 'home#index', as: 'home_index'
