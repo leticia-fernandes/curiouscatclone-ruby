@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'profile/index'
-
-  get 'perfil/index'
-
   devise_for :users
 
   authenticated :user do
