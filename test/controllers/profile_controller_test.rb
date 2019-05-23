@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class ProfileControllerTest < ActionDispatch::IntegrationTest
-  fixtures :users
   include Devise::Test::IntegrationHelpers
 
   setup do
-    sign_in users(:one)
+    user = create(:user)
+    sign_in user
   end
 
   test "logged in should get profile#index" do
