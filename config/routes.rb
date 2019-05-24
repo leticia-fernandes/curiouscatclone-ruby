@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  authenticated :user do
-    root 'profile#index', as: :authenticated_root
-  end
+  get '/profile', to: 'profile#index', as: 'profile_index'
 
   root 'home#index', as: 'home_index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -11,14 +11,14 @@ RSpec.describe ProfileController, :type => :controller do
       end
       it "returns HTTP status 200" do
         get :index
-        expect(response).to have_http_status(200)
+        expect(response).to be_successful
       end
     end
 
     context "when not logged in" do
-      it "returns HTTP status 302 then redirects" do
+      it "redirects to login page" do
         get :index
-        expect(response).to have_http_status(302)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
