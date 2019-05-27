@@ -31,11 +31,13 @@ ActiveRecord::Schema.define(version: 20190524171139) do
 
   create_table "questions", force: :cascade do |t|
     t.text "question", null: false
-    t.integer "user_sender_id", null: false
-    t.integer "user_addressee_id", null: false
+    t.integer "sender_id"
+    t.integer "addressee_id"
     t.boolean "anonymous", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["addressee_id"], name: "index_questions_on_addressee_id"
+    t.index ["sender_id"], name: "index_questions_on_sender_id"
   end
 
   create_table "users", force: :cascade do |t|
