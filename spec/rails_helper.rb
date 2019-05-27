@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'support/factory_bot'
 require 'devise'
+require_relative 'support/controller_macros'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
@@ -35,6 +36,9 @@ end
 RSpec.configure do |config|
   # For Devise > 4.1.1
   config.include Devise::Test::ControllerHelpers, :type => :controller
+
+  #For log in
+  config.extend ControllerMacros, :type => :controller
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

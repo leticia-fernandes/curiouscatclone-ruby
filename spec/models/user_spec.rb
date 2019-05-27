@@ -4,7 +4,7 @@ RSpec.describe User, :type => :model do
 
   context "unique validation" do
     before do
-      @user1 = create(:user)
+      create(:user)
     end
 
     it "has a unique username" do
@@ -39,6 +39,7 @@ RSpec.describe User, :type => :model do
     user = build(:user, email: nil)
     expect(user).to_not be_valid
   end
+
   it "is not valid without a name" do
     user = build(:user, name: nil)
     expect(user).to_not be_valid

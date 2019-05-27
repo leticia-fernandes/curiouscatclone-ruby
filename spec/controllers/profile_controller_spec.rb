@@ -4,11 +4,7 @@ RSpec.describe ProfileController, :type => :controller do
 
   describe "GET #index" do
     context "when logged" do
-      before do
-        @request.env["devise.mapping"] = Devise.mappings[:user]
-        user = create(:user)
-        sign_in user
-      end
+      login_user
       it "returns HTTP status 200" do
         get :index
         expect(response).to be_successful
