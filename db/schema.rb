@@ -13,16 +13,16 @@
 ActiveRecord::Schema.define(version: 20190524171139) do
 
   create_table "answers", force: :cascade do |t|
-    t.text "answer"
-    t.integer "question_id"
+    t.text "answer", null: false
+    t.integer "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "answer_id"
-    t.integer "user_id"
+    t.integer "answer_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["answer_id"], name: "index_likes_on_answer_id"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20190524171139) do
 
   create_table "questions", force: :cascade do |t|
     t.text "question", null: false
-    t.integer "sender_id"
-    t.integer "addressee_id"
+    t.integer "sender_id", null: false
+    t.integer "addressee_id", null: false
     t.boolean "anonymous", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
