@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# Faker
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # FactoryBotRails
 gem "factory_bot_rails"
 # Authentication

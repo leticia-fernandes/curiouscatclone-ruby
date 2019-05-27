@@ -1,5 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "is valid with valid attributes" do
+    question = build(:question)
+    expect(question).to be_valid
+    expect(question.errors.messages).to be_empty
+  end
+
+  it "is not valid without a question" do
+    question = build(:question, question: nil)
+    expect(question).to_not be_valid
+    expect(question.errors.messages[:question]).to eq ["can't be blank"]
+  end
+
+  it "is not valid without a sender" do
+    question = build(:question, sender_id: nil)
+    expect(question).to_not be_valid
+    expect(question.errors.messages[:sender]).to eq ["must exist", "can't be blank"]
+  end
+
+  it "is not valid without a addressee" do
+    question = build(:question, addressee_id: nil)
+    expect(question).to_not be_valid
+    expect(question.errors.messages[:addressee]).to eq ["must exist", "can't be blank"]
+  end
+
 end
