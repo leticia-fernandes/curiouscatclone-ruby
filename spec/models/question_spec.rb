@@ -5,7 +5,6 @@ RSpec.describe Question, type: :model do
   it "is valid with valid attributes" do
     question = build(:question)
     expect(question).to be_valid
-    expect(question.errors.messages).to be_empty
   end
 
   it "is not valid without the question content" do

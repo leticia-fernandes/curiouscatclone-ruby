@@ -4,7 +4,6 @@ RSpec.describe Answer, type: :model do
   it "is valid with valid attributes" do
     answer = build(:answer)
     expect(answer).to be_valid
-    expect(answer.errors.messages).to be_empty
   end
 
   it "is not valid without the answer content" do

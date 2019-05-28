@@ -5,7 +5,6 @@ RSpec.describe Like, type: :model do
   it "is valid with valid attributes" do
     like = build(:like)
     expect(like).to be_valid
-    expect(like.errors.messages).to be_empty
   end
 
   it "is not valid without an answer" do
