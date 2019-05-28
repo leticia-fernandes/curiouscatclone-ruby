@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :question do
-    question { "My question" }
+    content { "My question" }
     association :sender, factory: :random_user, strategy: :create
     association :addressee, factory: :random_user, strategy: :create
     anonymous { false }

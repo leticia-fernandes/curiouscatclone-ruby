@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :answer do
-    answer { "My answer" }
-    association :question, factory: :question, strategy: :create
+    content { "My answer" }
+    question
   end
 end

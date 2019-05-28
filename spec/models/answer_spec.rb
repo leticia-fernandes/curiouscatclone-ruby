@@ -7,10 +7,10 @@ RSpec.describe Answer, type: :model do
     expect(answer.errors.messages).to be_empty
   end
 
-  it "is not valid without an answer" do
-    answer = build(:answer, answer: nil)
+  it "is not valid without the answer content" do
+    answer = build(:answer, content: nil)
     expect(answer).to_not be_valid
-    expect(answer.errors.messages[:answer]).to eq ["can't be blank"]
+    expect(answer.errors.messages[:content]).to eq ["can't be blank"]
   end
 
   it "is not valid without a question" do

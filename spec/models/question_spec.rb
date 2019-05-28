@@ -8,10 +8,10 @@ RSpec.describe Question, type: :model do
     expect(question.errors.messages).to be_empty
   end
 
-  it "is not valid without a question" do
-    question = build(:question, question: nil)
+  it "is not valid without the question content" do
+    question = build(:question, content: nil)
     expect(question).to_not be_valid
-    expect(question.errors.messages[:question]).to eq ["can't be blank"]
+    expect(question.errors.messages[:content]).to eq ["can't be blank"]
   end
 
   it "is not valid without a sender" do
