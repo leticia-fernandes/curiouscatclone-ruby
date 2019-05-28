@@ -2,5 +2,5 @@ class Answer < ApplicationRecord
   belongs_to :question
   has_many :likes
 
-  validates :answer, :question, presence: true
+  validates :content, :question, presence: true
 end
