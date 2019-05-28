@@ -28,21 +28,25 @@ RSpec.describe User, :type => :model do
   it "is not valid without a password" do
     user = build(:user, password: nil)
     expect(user).to_not be_valid
+    expect(user.errors.messages[:password]).to eq ["can't be blank"]
   end
 
   it "is not valid without a username" do
     user = build(:user, username: nil)
     expect(user).to_not be_valid
+    expect(user.errors.messages[:username]).to eq ["can't be blank"]
   end
 
   it "is not valid without an email" do
     user = build(:user, email: nil)
     expect(user).to_not be_valid
+    expect(user.errors.messages[:email]).to eq ["can't be blank"]
   end
 
   it "is not valid without a name" do
     user = build(:user, name: nil)
     expect(user).to_not be_valid
+    expect(user.errors.messages[:name]).to eq ["can't be blank"]
   end
 
 end
