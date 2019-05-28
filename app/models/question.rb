@@ -3,5 +3,5 @@ class Question < ApplicationRecord
   belongs_to :addressee, class_name: "User"
   has_many :answers
 
-  validates :content, :sender, :addressee, presence: true
+  validates :content, presence: true
 end
