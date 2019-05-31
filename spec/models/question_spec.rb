@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  before do
-    @sender = create(:random_user)
-    @addressee = create(:random_user)
-  end
 
   it 'is valid with valid attributes' do
     question = build(:question)
@@ -29,43 +25,46 @@ RSpec.describe Question, type: :model do
     expect(question.errors.messages[:addressee_id]).to eq ['can\'t be blank']
   end
 
-  context 'get user answered questions' do
-    before do
-      @question = create(:question, sender: @sender, addressee: @addressee)
-    end
+  describe 'instance methods' do
+    let!(:addressee) { create(:random_user) }
 
-    context 'when have at least one answered question' do
-      before do
-        create(:answer, question: @question)
+    context 'get user answered questions' do
+      let!(:question) { create(:question, addressee: addressee) }
+
+      context 'when have at least one answered question' do
+        let!(:answer) { create(:answer, question: question) }
+
+        it 'returns a full relation' do
+          expect(addressee.answered_questions).to_not be_empty
+        end
+
+        it 'returns only answered_questions' do
+          create(:question, addressee: addressee)
+          expect(addressee.answered_questions).to eq([question])
+        end
       end
 
-      it 'returns a full relation' do
-        expect(@addressee.answered_questions).to_not be_empty
+      context 'when there\'s not a answered question' do
+        it 'returns an empty relation' do
+          expect(addressee.answered_questions).to be_empty
+        end
       end
     end
 
-    context 'when there\'s not a answered question' do
-      it 'returns an empty relation' do
-        expect(@addressee.answered_questions).to be_empty
+    context 'get user unanswered questions' do
+      context 'when have at least one unanswered question' do
+        let!(:question) { create(:question, addressee: addressee) }
+        it 'returns a full relation' do
+          expect(addressee.unanswered_questions).to_not be_empty
+        end
+      end
+
+      context 'when there\'s not a unanswered question' do
+        it 'returns an empty relation' do
+          expect(addressee.unanswered_questions).to be_empty
+        end
       end
     end
   end
 
-  context 'get user unanswered questions' do
-    context 'when have at least one unanswered question' do
-      before do
-        @question = create(:question, sender: @sender, addressee: @addressee)
-      end
-
-      it 'returns a full relation' do
-        expect(@addressee.unanswered_questions).to_not be_empty
-      end
-    end
-
-    context 'when there\'s not a unanswered question' do
-      it 'returns an empty relation' do
-        expect(@addressee.unanswered_questions).to be_empty
-      end
-    end
-  end
 end

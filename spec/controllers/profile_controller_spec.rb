@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProfileController, type: :controller do
 
-  describe 'GET #index' do
+  describe 'GET #me' do
     context 'when logged' do
       login_user
       it 'returns HTTP status 200' do
