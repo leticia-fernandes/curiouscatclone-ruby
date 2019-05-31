@@ -14,8 +14,9 @@
 
 @import 'bootstrap';
 
-$red-color: #bc1823;
-$font-default: 'Amaranth';
+$red-color: #d60042;
+$font-default: 'Amaranth', sans-serif;
+$font-special: 'Rajdhani', sans-serif;
 
 body{
   padding-bottom: 100px;
@@ -33,7 +34,6 @@ body{
 #navbar-ccc {
   background-color: white !important;
   font-family: $font-default, sans-serif;
-  border-bottom: 1px solid lightgray;
   margin-bottom: 50px;
   .img-nav{
     width: 200px;
@@ -60,7 +60,7 @@ body{
   border-right: 3px solid black;
   background-color: $red-color;
   padding: 25px 0;
-  font-family: $font-default, sans-serif;
+  font-family: $font-default;
   h1{
     font-weight: bold;
     color: white;
@@ -68,7 +68,7 @@ body{
   }
   h2{
     font-size: 1.5em;
-    font-family: $font-default, sans-serif;
+    font-family: $font-default;
     padding: 2px;
     a, a:link, a:visited, a:hover{
       color: black;
@@ -79,7 +79,7 @@ body{
 
 .default-form{
   h2, label{
-    font-family: $font-default, sans-serif;
+    font-family: $font-default;
   }
   h2{
     margin-bottom: 20px;
@@ -87,6 +87,90 @@ body{
   }
   a {
     color: $red-color;
+  }
+}
+
+.profile{
+  h1{
+    font-family: $font-default;
+    color: black;
+    font-weight: bold;
+  }
+  h2{
+    font-family: $font-special;
+    color: $red-color;
+    font-size: 1.5em;
+  }
+
+  a{
+    color: $red-color;
+    outline: 0 !important;
+    font-family: $font-special;
+  }
+
+  a:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+
+  .box-answered-questions{
+    background-color: $red-color;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    h3{
+      font-size: 1.2em;
+      font-family: $font-special;
+      margin-top: 0;
+    }
+    h4{
+      font-size: 3em;
+      font-weight: bold;
+      font-family: 'Viga', sans-serif;
+      margin-bottom: 0;
+    }
+  }
+
+  .box-question{
+    border: 2px solid rgb(234, 235, 236);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+
+    h1{
+      color: $red-color;
+      font-size: 1.7em;
+      font-weight: lighter;
+    }
+    p{
+      font-family: $font-special;
+      padding: 5px;
+      color: black;
+    }
+    
+    .sender_profile{
+      font-size: 0.8em;
+      margin-bottom: 0;
+      padding: 0;
+
+      span{
+        color: rgb(154, 155, 156);
+      }
+      a{
+        font-style: italic;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .empty-message{
+    font-family: $font-special;
+    color: gray;
+    margin-top: 50px;
+    span {
+      font-weight: bold;
+    }
   }
 }
 

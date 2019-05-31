@@ -1,0 +1,41 @@
+<div class="container profile">
+  <div class="row">
+    <div class="col-md-10">
+      <h1><%= @user.name %></h1>
+      <h2>/<%= @user.username %></h2>
+    </div>
+    <div class="col-md-2">
+      <div class="box-answered-questions">
+        <h3>Answered Questions</h3>
+        <h4><%= @user.answered_questions.size %></h4>
+      </div>
+    </div>
+  </div>
+
+  <% @user.answered_questions.each do |q|  %>
+    <div class="box-question">
+      <div class="row">
+        <div class="col">
+          <h1><%= q.content %></h1>
+          <p><%= q.answer.content %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-right">
+          <p class="sender_profile">
+            <span>Sent by </span><%= link_to q.sender.username, profile_show_path(q.sender.username)%>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @user.answered_questions.empty? %>
+    <div class="row">
+      <div class="col text-center">
+        <p class="empty-message">Nothing to see <span>here</span>.</p>
+      </div>
+    </div>
+  <% end %>
+
+</div>

@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Amaranth|Viga">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Amaranth|Viga|Rajdhani ">
   </head>
 
 <body>
@@ -22,6 +22,12 @@
     <div class="collapse navbar-collapse" id="nav-auth">
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Home', me_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Explore', me_path, class:"nav-link"%>
+          </li>
           <li class="nav-item">
             <%= link_to 'Logout', destroy_user_session_path, method: :delete , class:"nav-link"%>
           </li>
