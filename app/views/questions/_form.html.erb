@@ -1,0 +1,30 @@
+<%= form_with(model: question, local: true, class: 'form-ccc') do |form| %>
+  <% if question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :addressee_id, value: addressee.id, id: :question_addressee, class: 'form-control' %>
+
+  <div class="form-group">
+    <%= form.label :content, 'Send a question' %>
+    <%= form.text_area :content, id: :question_content, class: 'form-control' %>
+  </div>
+
+  <div class="form-check">
+    <%= form.check_box :anonymous, id: :question_anonymous, class: 'form-check-input' %>
+    <%= form.label :anonymous, 'Send anonymously', class: 'form-check-label' %>
+  </div>
+
+
+  <div class="form-group text-right">
+    <%= form.submit 'Send', class: 'btn btn-lg btn-danger' %>
+  </div>
+<% end %>
