@@ -19,9 +19,22 @@
   <% @user.answered_questions.each do |q|  %>
     <div class="box-question">
       <div class="row">
-        <div class="col">
+        <div class="col-sm-10">
           <h1><%= q.content %></h1>
           <p><%= q.answer.content %></p>
+        </div>
+        <div class="col-sm-2 text-right">
+          <div class="likes">
+            <% if current_user.id == @user.id || q.answer.liked_by?(current_user) %>
+              <%= fa_icon "heart", class: 'red' %>
+            <% else %>
+              <%= render 'likes/form', like: Like.new, answer: q.answer %>
+            <% end %>
+
+            <div>
+              <%= q.answer.likes.size %> likes
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">

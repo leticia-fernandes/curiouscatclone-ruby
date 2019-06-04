@@ -13,6 +13,7 @@
  */
 
 @import 'bootstrap';
+@import 'font-awesome';
 
 $red-color: #d60042;
 $font-default: 'Amaranth', sans-serif;
@@ -240,5 +241,31 @@ body {
     small em {
       font-family: $font-special;
     }
+  }
+}
+
+.likes {
+  font-family: $font-special;
+  font-size: 0.8em;
+  color: gray;
+  i {
+    font-size: 1.5em;
+  }
+  .red {
+    color: $red-color;
+  }
+}
+
+.btn-like {
+  background-color: rgba(214, 0, 66, 0.0);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  :hover {
+    color: rgba(214, 0, 66, 0.55);
+    cursor: pointer;
+  }
+  i {
+    color: gray;
   }
 }
