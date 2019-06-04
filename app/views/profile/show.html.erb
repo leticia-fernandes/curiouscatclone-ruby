@@ -12,6 +12,10 @@
     </div>
   </div>
 
+  <% if current_user.id != @user.id %>
+    <%= render 'questions/form', question: Question.new, addressee: @user %>
+  <% end %>
+
   <% @user.answered_questions.each do |q|  %>
     <div class="box-question">
       <div class="row">

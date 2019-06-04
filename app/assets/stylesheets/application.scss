@@ -18,12 +18,12 @@ $red-color: #d60042;
 $font-default: 'Amaranth', sans-serif;
 $font-special: 'Rajdhani', sans-serif;
 
-body{
+body {
   padding-bottom: 100px;
 }
 
-#error_explanation{
-  h2{
+#error_explanation {
+  h2 {
     font-size: 1.5em;
   }
 
@@ -35,12 +35,23 @@ body{
   background-color: white !important;
   font-family: $font-default, sans-serif;
   margin-bottom: 50px;
-  .img-nav{
+  .img-nav {
     width: 200px;
+  }
+  a.dropdown-item {
+    color: black !important;
+  }
+  a.dropdown-item:hover {
+    color: white !important;
+    background-color: $red-color;
   }
 }
 
-.full-screen{
+.alert-app {
+  font-family: $font-special;
+}
+
+.full-screen {
   height: 100vh;
   width: 100%;
   padding: 0 2%;
@@ -54,34 +65,34 @@ body{
   vertical-align: middle;
 }
 
-.box-home{
+.box-home {
   border-bottom-left-radius: 25px;
   border-top-left-radius: 25px;
   border-right: 3px solid black;
   background-color: $red-color;
   padding: 25px 0;
   font-family: $font-default;
-  h1{
+  h1 {
     font-weight: bold;
     color: white;
     margin-bottom: 25px;
   }
-  h2{
+  h2 {
     font-size: 1.5em;
     font-family: $font-default;
     padding: 2px;
-    a, a:link, a:visited, a:hover{
+    a, a:link, a:visited, a:hover {
       color: black;
       text-decoration: none;
     }
   }
 }
 
-.default-form{
-  h2, label{
+.default-form {
+  h2, label {
     font-family: $font-default;
   }
-  h2{
+  h2 {
     margin-bottom: 20px;
     color: $red-color;
   }
@@ -90,41 +101,41 @@ body{
   }
 }
 
-.profile{
-  h1{
+.profile {
+  h1 {
     font-family: $font-default;
     color: black;
     font-weight: bold;
   }
-  h2{
+  h2 {
     font-family: $font-special;
     color: $red-color;
     font-size: 1.5em;
   }
 
-  a{
+  a {
     color: $red-color;
     outline: 0 !important;
     font-family: $font-special;
   }
 
-  a:hover{
+  a:hover {
     text-decoration: underline;
     opacity: 0.7;
   }
 
-  .box-answered-questions{
+  .box-answered-questions {
     background-color: $red-color;
     text-align: center;
     padding: 15px;
     border-radius: 5px;
     color: white;
-    h3{
+    h3 {
       font-size: 1.2em;
       font-family: $font-special;
       margin-top: 0;
     }
-    h4{
+    h4 {
       font-size: 3em;
       font-weight: bold;
       font-family: 'Viga', sans-serif;
@@ -132,39 +143,39 @@ body{
     }
   }
 
-  .box-question{
+  .box-question {
     border: 2px solid rgb(234, 235, 236);
     padding: 15px;
     margin-top: 20px;
     border-radius: 5px;
 
-    h1{
+    h1 {
       color: $red-color;
       font-size: 1.7em;
       font-weight: lighter;
     }
-    p{
+    p {
       font-family: $font-special;
       padding: 5px;
       color: black;
     }
     
-    .sender_profile{
+    .sender_profile {
       font-size: 0.8em;
       margin-bottom: 0;
       padding: 0;
 
-      span{
+      span {
         color: rgb(154, 155, 156);
       }
-      a{
+      a {
         font-style: italic;
         font-weight: bold;
       }
     }
   }
 
-  .empty-message{
+  .empty-message {
     font-family: $font-special;
     color: gray;
     margin-top: 50px;
@@ -174,3 +185,60 @@ body{
   }
 }
 
+.form-ccc {
+  margin-top: 15px;
+  font-family: $font-special;
+
+  textarea {
+    box-shadow: none !important;
+  }
+  .form-group {
+    margin-bottom: 0;
+  }
+  .form-group label {
+    color: gray;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  .form-check {
+    margin-top: 1px;
+    font-size: 0.9em;
+    color: gray;
+  }
+  .form-check label {
+    margin-top: 2px;
+  }
+  .btn {
+    font-family: $font-default;
+    background-color: $red-color;
+  }
+  .btn:hover {
+    opacity: 0.8;
+  }
+}
+
+.received-questions {
+  .title {
+   font-family: $font-default;
+    margin-bottom: 30px;
+  }
+  .list-received-questions {
+    font-family: $font-default;
+    margin: 15px 0px 15px 0px;
+    border: 2px solid lightgray;
+    padding: 20px;
+    border-radius: 15px;
+    a:link, a:visited, a:hover {
+      color: $red-color;
+      font-family: $font-default;
+    }
+    h1 {
+      font-size: 1.5em;
+      color: $red-color;
+    }
+    small em {
+      font-family: $font-special;
+    }
+  }
+}
