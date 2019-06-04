@@ -164,13 +164,13 @@ body {
       font-size: 0.8em;
       margin-bottom: 0;
       padding: 0;
-
+      font-style: italic;
+      font-weight: bold;
+      color: #616161;
       span {
         color: rgb(154, 155, 156);
-      }
-      a {
-        font-style: italic;
-        font-weight: bold;
+        font-style: normal;
+        font-weight: normal;
       }
     }
   }

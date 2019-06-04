@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resource :questions, only: [:create]
 
+  resource :answers, only: [:create]
+
   get '/me', to: 'profile#me', as: 'me'
 
   get '/profile/:username', to: 'profile#show', as: 'profile_show'

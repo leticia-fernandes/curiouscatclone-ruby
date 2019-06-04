@@ -27,7 +27,12 @@
       <div class="row">
         <div class="col text-right">
           <p class="sender_profile">
-            <span>Sent by </span><%= link_to q.sender.username, profile_show_path(q.sender.username)%>
+            <span>Sent by </span>
+            <% if q.anonymous %>
+              anonymous
+            <% else %>
+              <%= link_to q.sender.username, profile_show_path(q.sender.username)%>
+            <% end %>
           </p>
         </div>
       </div>

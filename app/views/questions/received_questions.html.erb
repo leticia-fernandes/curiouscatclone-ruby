@@ -15,9 +15,18 @@
               </a>
             <% end %>
           </small>
-
           <h1><%= question.content %></h1>
+
+          <%= render 'answers/form', answer: Answer.new, question: question %>
         </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if current_user.unanswered_questions.empty? %>
+    <div class="row profile">
+      <div class="col text-center">
+        <p class="empty-message">Nothing to see <span>here</span>.</p>
       </div>
     </div>
   <% end %>
