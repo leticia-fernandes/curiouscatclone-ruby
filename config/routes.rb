@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resource :answers, only: [:create]
 
+  resource :likes, only: [:create]
+
   get '/me', to: 'profile#me', as: 'me'
 
   get '/profile/:username', to: 'profile#show', as: 'profile_show'

@@ -5,19 +5,21 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# Rails controller testing
+gem 'font-awesome-rails'
+
 gem 'rails-controller-testing'
-# Rubocop
+
 gem 'rubocop', require: false
-# Faker
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-# FactoryBotRails
+
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+
 gem 'factory_bot_rails'
 # Authentication
 gem 'devise'
-# Bootstrap
+
 gem 'bootstrap'
 gem 'jquery-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record
