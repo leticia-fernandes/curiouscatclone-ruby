@@ -1,0 +1,38 @@
+<div class="container users">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Explore</h1>
+
+      <%= render 'form_explore' , user: User.new%>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="row">
+    <div class="col">
+      <% if @users && @users.size > 0 %>
+        <h3>Search result...</h3>
+        <br>
+          <table class="table table-striped">
+            <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <a href="<%= profile_show_path(username: user.username) %>">
+                    <p><strong>/<%= user.username %></strong></p>
+                    <p class="text-muted"><%= user.name %></p>
+                  </a>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+      <% end %>
+
+      <% if @message.present? %>
+        <div class="alert  text-center"><%= @message %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
