@@ -269,3 +269,50 @@ body {
     color: gray;
   }
 }
+
+
+.btn-ccc-search, .btn-ccc-search:visited, .btn-ccc-search:focus {
+  background-color: $red-color !important;
+  box-shadow: none !important;
+  color: white !important;
+  outline: none !important;
+  border: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  padding: 7px 10px 7px 10px !important;
+}
+
+
+.users {
+  h1 {
+    font-family: $font-default;
+    color: black;
+    font-weight: bold;
+  }
+  h3 {
+    font-family: $font-special;
+    color: $red-color;
+  }
+  .alert {
+    background-color: $red-color;
+    color: white;
+    font-family: $font-default;
+  }
+  table {
+    font-family: $font-special;
+
+    p strong {
+      font-family: $font-default;
+      color: $red-color;
+      font-size: 1.5em;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  input {
+    box-shadow: none !important;
+  }
+}
+
+

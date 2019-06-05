@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   resource :likes, only: [:create]
 
+  get '/explore', to: 'users#explore', as: 'explore_index'
+
+  post '/explore', to: 'users#find_user', as: 'users'
+
   get '/me', to: 'profile#me', as: 'me'
 
   get '/profile/:username', to: 'profile#show', as: 'profile_show'
