@@ -1,22 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-
-  it 'is valid with valid attributes' do
-    like = build(:like)
-    expect(like).to be_valid
+  describe 'Factory' do
+    it 'is valid with valid attributes' do
+      like = build(:like)
+      expect(like).to be_valid
+    end
   end
 
-  it 'is not valid without an answer' do
-    like = build(:like, answer_id: nil)
-    expect(like).to_not be_valid
-    expect(like.errors.messages[:answer_id]).to eq ['can\'t be blank']
+  describe 'Relations' do
+    it { is_expected.to belong_to(:answer) }
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_one(:addressee) }
   end
 
-  it 'is not valid without an user' do
-    like = build(:like, user_id: nil)
-    expect(like).to_not be_valid
-    expect(like.errors.messages[:user_id]).to eq ['can\'t be blank']
+  describe 'Validations' do
+    it { is_expected.to validate_presence_of(:answer_id) }
+    it { is_expected.to validate_presence_of(:user_id) }
   end
-
 end

@@ -1,6 +1,7 @@
 class Answer < ApplicationRecord
   belongs_to :question
   has_many :likes
+  has_one :addressee, through: :question
 
   scope :liked, -> { joins(:likes) }
 

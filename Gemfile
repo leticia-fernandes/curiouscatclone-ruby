@@ -7,13 +7,8 @@ end
 
 gem 'font-awesome-rails'
 
-gem 'rails-controller-testing'
-
 gem 'rubocop', require: false
 
-gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
-
-gem 'factory_bot_rails'
 # Authentication
 gem 'devise'
 
@@ -28,6 +23,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -52,9 +48,12 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
+  gem 'factory_bot_rails'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'selenium-webdriver'
   # RSpec
   gem 'rspec-rails'
+
 end
 
 group :development do
@@ -64,6 +63,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
