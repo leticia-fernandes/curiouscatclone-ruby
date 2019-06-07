@@ -7,10 +7,10 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       if @like.save
-        format.html { redirect_back(fallback_location: :back, notice: 'Liked!') }
+        format.html { redirect_back(fallback_location: profile_show_path(@like.addressee.username), notice: 'Liked!') }
         format.json { render :show, status: :created, location: @like }
       else
-        format.html { redirect_back(fallback_location: :back, alert: 'Oops... something went wrong! Reload the page and try again.') }
+        format.html { redirect_back(fallback_location: profile_show_path(@like.addressee.username), alert: 'Oops... something went wrong! Reload the page and try again.') }
         format.json { render json: @like.errors, status: :unprocessable_entity }
       end
     end

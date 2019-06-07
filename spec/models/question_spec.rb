@@ -1,34 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-
-  it 'is valid with valid attributes' do
-    question = build(:question)
-    expect(question).to be_valid
+  describe 'Factory' do
+    it 'is valid with valid attributes' do
+      question = build(:question)
+      expect(question).to be_valid
+    end
   end
 
-  it 'is not valid without the question content' do
-    question = build(:question, content: nil)
-    expect(question).to_not be_valid
-    expect(question.errors.messages[:content]).to eq ['can\'t be blank']
+  describe 'Relations' do
+    it { is_expected.to belong_to(:sender) }
+    it { is_expected.to belong_to(:addressee) }
+    it { is_expected.to have_one(:answer) }
   end
 
-  it 'is not valid without a sender' do
-    question = build(:question, sender_id: nil)
-    expect(question).to_not be_valid
-    expect(question.errors.messages[:sender_id]).to eq ['can\'t be blank']
+  describe 'Validations' do
+    it { is_expected.to validate_presence_of(:content) }
+    it { is_expected.to validate_presence_of(:sender_id) }
+    it { is_expected.to validate_presence_of(:addressee_id) }
   end
 
-  it 'is not valid without a addressee' do
-    question = build(:question, addressee_id: nil)
-    expect(question).to_not be_valid
-    expect(question.errors.messages[:addressee_id]).to eq ['can\'t be blank']
-  end
-
-  describe 'instance methods' do
+  describe 'Instance methods' do
     let!(:addressee) { create(:random_user) }
 
-    context 'get user answered questions' do
+    describe '#answered' do
       let!(:question) { create(:question, addressee: addressee) }
 
       context 'when have at least one answered question' do
@@ -51,7 +46,7 @@ RSpec.describe Question, type: :model do
       end
     end
 
-    context 'get user unanswered questions' do
+    describe '#unanswered' do
       context 'when have at least one unanswered question' do
         let!(:question) { create(:question, addressee: addressee) }
         it 'returns a full relation' do
@@ -66,5 +61,4 @@ RSpec.describe Question, type: :model do
       end
     end
   end
-
 end
