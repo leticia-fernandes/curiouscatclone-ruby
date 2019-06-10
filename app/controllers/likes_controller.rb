@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: %i[show edit update destroy]
+  before_action :set_like, only: [:destroy]
 
   def create
 
@@ -20,7 +20,7 @@ class LikesController < ApplicationController
   def destroy
     @like.destroy
     respond_to do |format|
-      format.html { redirect_to likes_url, notice: 'Like was successfully destroyed.' }
+      format.html {  redirect_back(fallback_location: profile_show_path(@like.addressee.username), notice: 'Unliked!') }
       format.json { head :no_content }
     end
   end
@@ -28,11 +28,11 @@ class LikesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_like
-    @like = Like.find(params[:id])
+    @like = Like.find(like_params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def like_params
-    params.require(:like).permit(:answer_id)
+    params.require(:like).permit(:answer_id, :id)
   end
 end

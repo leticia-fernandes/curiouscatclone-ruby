@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resource :answers, only: [:create]
 
-  resource :likes, only: [:create]
+  resource :likes, only: [:create, :destroy]
 
   get '/explore/(:username)', to: 'profile#search', as: 'explore'
 

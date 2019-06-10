@@ -25,12 +25,11 @@
         </div>
         <div class="col-sm-2 text-right">
           <div class="likes">
-            <% if current_user.id == @user.id || q.answer.liked_by?(current_user) %>
+            <% if current_user.id == @user.id %>
               <%= fa_icon "heart", class: 'red' %>
             <% else %>
-              <%= render 'likes/form', like: Like.new, answer: q.answer %>
+              <%= render 'likes/form', like_form_options(q.answer) %>
             <% end %>
-
             <div>
               <%= q.answer.likes.size %> likes
             </div>
