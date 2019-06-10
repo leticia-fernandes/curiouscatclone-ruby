@@ -265,8 +265,16 @@ body {
     color: rgba(214, 0, 66, 0.55);
     cursor: pointer;
   }
+}
+
+.btn-like-gray{
   i {
     color: gray;
+  }
+}
+.btn-like-red{
+  i {
+    color: $red-color;
   }
 }
 

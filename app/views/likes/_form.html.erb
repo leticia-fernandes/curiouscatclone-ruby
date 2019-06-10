@@ -1,5 +1,6 @@
-<%= form_with(model: like) do |form| %>
+<%= form_with(model: like, url: likes_path, method: method_form) do |form| %>
 
+  <%= form.hidden_field :id, value: like.id, id: :likes_id, class: 'form-control' %>
   <%= form.hidden_field :answer_id, value: answer.id, id: :likes_answer, class: 'form-control' %>
-    <button type="submit" name="commit" class="btn-like"><%= fa_icon 'heart', class: 'gray' %></button>
+    <button type="submit" name="commit" class="btn-like <%= button_class %>"><%= fa_icon 'heart', class: 'gray' %></button>
 <% end %>

@@ -10,4 +10,8 @@ class Answer < ApplicationRecord
   def liked_by?(user)
     likes.where(user: user).present?
   end
+
+  def like_from(user)
+    likes.find_by(user: user)
+  end
 end
