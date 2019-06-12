@@ -323,4 +323,12 @@ body {
   }
 }
 
+.ajs-red {
+  background-color: $red-color;
+  border-color: $red-color;
+  color: #FFFFFF;
+}
 
+.ajs-red a {
+  color: #FFFFFF;
+}

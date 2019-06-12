@@ -10,6 +10,10 @@ class QuestionsController < ApplicationController
       if @question.save
         format.html { redirect_back(fallback_location: profile_show_path(username: @question.addressee.username), notice: 'Question was successfully sent.') }
         format.json { render :show, status: :created, location: @question }
+        WebNotificationsChannel.broadcast_to(
+            @question.addressee,
+            body: 'You received a new question!'
+        )
       else
         format.html { redirect_back(fallback_location: profile_show_path(username: @question.addressee.username), alert: 'Oops! Something went wrong... Make sure to write something to send.') }
         format.json { render json: @question.errors, status: :unprocessable_entity }
