@@ -1,0 +1,25 @@
+<%= form_with(model: answer, local: true, class: 'form-ccc') do |form| %>
+  <% if answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+      <ul>
+      <% answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :question_id, value: question.id, id: :answer_question, class: 'form-control' %>
+
+  <div class="form-group">
+    <%= form.label :content, 'Answer the question:' %>
+    <%= form.text_area :content, id: :answer_content, class: 'form-control' %>
+  </div>
+
+  <br>
+  <div class="form-group text-right">
+    <%= form.submit 'Answer', class: 'btn btn-lg btn-danger' %>
+  </div>
+<% end %>
